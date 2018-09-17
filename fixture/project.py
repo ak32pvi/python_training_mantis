@@ -8,7 +8,9 @@ class ProjectHelper:
 
     def go_to_create_project(self):
         wd = self.app.wd
-        wd.get("http://localhost/mantisbt-1.2.20/manage_proj_create_page.php")
+        wd.find_element_by_link_text("Manage").click()
+        wd.find_element_by_link_text("Manage Projects").click()
+        wd.find_element_by_xpath('/html/body/table[3]/tbody/tr[1]/td/form/input[2]').click()
 
     def create(self):
         wd = self.app.wd
