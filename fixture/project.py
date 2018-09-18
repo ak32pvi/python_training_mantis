@@ -39,7 +39,7 @@ class ProjectHelper:
     def count(self):
         wd = self.app.wd
         self.go_to_create_project()
-        return len(wd.find_elements_by_xpath("//table//td[contains(text(),'development')"))
+        return len(wd.find_elements_by_css_selector('tr.row-1 a'))
 
 
 
