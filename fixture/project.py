@@ -36,6 +36,12 @@ class ProjectHelper:
         self.choose_first_project()
         self.submit_project_deletion_twice()
 
+    def count(self):
+        wd = self.app.wd
+        self.go_to_create_project()
+        return len(wd.find_elements_by_css_selector('tr.row-1 a'))
+
+
 
 
 
