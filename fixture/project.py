@@ -1,3 +1,5 @@
+from model.project import Project
+
 
 class ProjectHelper:
 
@@ -39,7 +41,16 @@ class ProjectHelper:
     def count(self):
         wd = self.app.wd
         self.go_to_create_project()
-        return len(wd.find_elements_by_css_selector('tr.row-1 a'))
+        return len(wd.find_elements_by_css_selector('tr.row-1 a,.row-2 a'))
+
+    def get_project_list(self):
+        wd = self.app.wd
+        self.go_to_create_project()
+        projects = []
+        for element in wd.find_elements_by_css_selector('tr.row-1 a,.row-2 a'):
+            text = element.text
+            projects.append(Project(name=text))
+        return projects
 
 
 
